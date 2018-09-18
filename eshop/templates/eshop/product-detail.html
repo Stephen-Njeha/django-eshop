@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  {% if category %}{{ category.name }}{% else %} Product Detail {% endif %}
+{% endblock %}
+
+{% block content %}
+  <!--breadcrumb-->
+  <div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-100 p-lr-0-lg">
+      <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+        HOME
+        <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+      </a>
+      <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
+        {{ c.name }}
+        <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+      </a>
+      <span class="stext-109 cl4">
+        {{ product.name }}
+      </span>
+    </div>
+  </div>
+  <!--Product Detail-->
+  <section class="sec-product-detail bg0 p-t-65 p-b-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-7 p-b-30">
+          <div class="p-l-25 p-r-30 p-lr-0-lg">
+            <div class="wrap-slick3 flex-sb flex-w">
+              <div class="wrap-slick3-dots"></div>
+              <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+              <div class="slick3 gallery-lb">
+                <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+                  <div class="wrap-pic-w pos-relative">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/product-detail-01.jpg' %}{% endif %}" alt="Image-Product">
+                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{% static 'images/product-detail-01.jpg' %}">
+                      <i class="fa fa-expand"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+                  <div class="wrap-pic-w pos-relative">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/product-detail-02.jpg' %}{% endif %}" alt="Image-Product">
+                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
+                      <i class="fa fa-expand"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
+                  <div class="wrap-pic-w pos-relative">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/product-detail-03.jpg' %}{% endif %}" alt="Image-Product">
+                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
+                      <i class="fa fa-expand"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5 p-b-30">
+          <div class="p-r-50 p-t-5 p-lr-0-lg">
+            <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+              {{ product.name }}
+            </h4>
+            <span class="mtext-106 cl2">
+              Kshs. {{ product.price }}
+            </span>
+            <div class="p-t-33">
+              <div class="flex-w flex-r-m p-b-10">
+                <form action="{% url "cart:cart_add" product.id %}" method="POST">
+                  {% csrf_token %}
+                  <div class="size-204 flex-w flex-m respon6-next">                   
+                    {{ cart_product_form }}
+                    <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                      ADD TO CART
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bor10 m-t-50 p-t-43 p-b-40">
+        <!--Tab One-->
+        <div class="tab01">
+          <!--Nav tab-->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item p-b-10">
+              <a class="nav-link active" data-toggle="tab" href="#description" role="tab">DESCRIPTION</a>
+            </li>
+          </ul>
+          <!--Tab panes-->
+          <div class="tab-content p-t-43">
+            <div class="tab-pane fade show active" id="description" role="tabpanel">
+              <div class="how-pos2 p-lr-15-md">
+                <p class="stext-102 cl6">
+                  {{ product.description|safe|linebreaksbr }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
+      <span class="stext-107 cl6 p-lr-25">
+        UNIQUE PRODUCT ID: {{ product.id }}
+      </span>
+    </div>
+  </section>
+  
+{% endblock %}

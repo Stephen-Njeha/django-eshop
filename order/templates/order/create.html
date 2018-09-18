@@ -40,54 +40,54 @@
                     <div class="col-lg-7">
                         <div class="billing_details">
                             <h2 class="reg_title">Billing Detail</h2>
-                            <form class="billing_inner row">
+                            <form class="billing_inner row" action="." method="POST">
+                                {% csrf_token %}
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="cun">Country <span>*</span></label>
-                                        <input type="text" class="form-control" id="last" aria-describedby="last">
+                                        {{ form.country }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="name">First Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="">
+                                        {{ form.firstname }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="last">Last Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="last" aria-describedby="last">
+                                        {{ form.lastname }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="cname">Company Name </label>
-                                        <input type="text" class="form-control" id="last" aria-describedby="last">
+                                        {{ form.company }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="address">Address <span>*</span></label>
-                                        <input type="text" class="form-control" id="address" aria-describedby="address">
-                                        <input type="text" class="form-control" id="address2" aria-describedby="address">
+                                        {{ form.address }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="ctown">City / Town <span>*</span></label>
-                                        <input type="text" class="form-control" id="last" aria-describedby="last">
+                                        {{ form.city }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="email">Email <span>*</span></label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="email">
+                                        {{ form.email }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="phone">Phone <span>*</span></label>
-                                        <input type="text" class="form-control" id="phone" aria-describedby="phone">
+                                        {{ form.phone }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -102,31 +102,31 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="cunt">Country <span>*</span></label>
-                                        <input type="text" class="form-control" id="last" aria-describedby="last">
+                                        {{ form.country }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="name2">First Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="name2" aria-describedby="name2" placeholder="">
+                                        {{ form.firstname }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="last2">Last Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="last2" aria-describedby="last2">
+                                        {{ form.lastname }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="company">Company Name <span>*</span></label>
-                                        <input type="text" class="form-control" id="company" aria-describedby="company">
+                                        {{ form.country }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="city">City / Town <span>*</span></label>
-                                        <input type="text" class="form-control" id="city" aria-describedby="city">
+                                        {{ form.city }}
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
